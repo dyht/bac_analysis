@@ -5,7 +5,7 @@
 close all;
 clear
 numtotal=[];
-files=dir('I:\PAO1_rest\MT21\*.mat');
+files=dir('*.mat');
 for i=1:length(files)
     name=files(i).name;
     num=str2num(name(1:end-4));
@@ -14,7 +14,7 @@ for i=1:length(files)
 end
 for ii=1:length(files)
 numtotal=sort(numtotal,1);
-load(['I:\PAO1_rest\MT21\' num2str(numtotal(ii)) '.mat']);
+load(['*.mat']);
 name=[ num2str(numtotal(ii)) ];
 Y=vv;
 Y(find(isnan(Y)))=0;
@@ -71,6 +71,5 @@ X0=X0';
  plot(tt,vv)
  subplot(2,1,2)
  plot(tt,X0)
-saveas(gcf,['I:\PAO1_rest\MT21\' name '-CKfilter']);
 close all
 end
