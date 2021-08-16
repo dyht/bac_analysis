@@ -3,14 +3,14 @@
 % function [centR,centC] = beadweightfit(frames,sigma)
 function [centR,centC] = beadweightfit(movobj,sigma)
 
-if nargin==1, sigma = 5; end %用来判断输入变量个数的函数 sigma是指奇异值
+if nargin==1, sigma = 5; end 
 nframes=movobj.NumberOfFrames;
 
 % nframes = length(frames);
 centR = zeros(nframes,1);
 centC = zeros(nframes,1);
 
-% matlabpool %并行运算
+% matlabpool 
 parfor i = 1:nframes
 %     frames(:,:,i)=255-frames(:,:,i);
     frames =read(movobj,i); 
